@@ -10,7 +10,7 @@ int arrAllNums[100];
 double iPass, iFail = 0;
 
 void populateBoxes() {
-
+  //Adds the numbers 1-100 to random boxes in the array
   int randoNum = rand() % 100;
   for (int i = 0; i < 100; i++){
     arrPrisonerNums[i] = i;
@@ -33,7 +33,7 @@ void findBoxes() {
   bool noFind = false;
   int i = 0;
   int foundNumber, prisonerNumber, index = 0;
-
+//Uses the prisoners problem algorithm to help the "prisoners" find the boxes
   while ((!noFind) && (i < 100)){
     prisonerNumber = i;
     index = prisonerNumber;
@@ -52,6 +52,7 @@ void findBoxes() {
         noFind = true;
     }
   }
+  //Will update relevent variables if all boxes were found or not
   if (noFind){
       iFail++;
   } else {
@@ -67,7 +68,7 @@ int main () {
     populateBoxes();
     findBoxes();
   }
-
+//Will just print out percentages based on how many times all boxes were found (Should be around 30% on average) 
   cout << "Pass chances that round: " << to_string((iPass/amnt)*100)  << endl;
   cout << "Challenges passed: " << to_string(iPass) << endl;
   cout << "Challenges failed: " << to_string(iFail) << endl;
